@@ -1,0 +1,41 @@
+require('sinatra')
+require('sinatra/reloader')
+
+require_relative('../models/account_holder.rb')
+require_relative('../models/transaction.rb')
+
+get '/transactions' do
+  @transactions = Transaction.all()
+  erb( :index )
+end
+
+get '/transactions/new' do
+  erb( :new )
+end
+
+get '/transactions/:id' do
+  @transaction = Transaction.find( params[:id] )
+  erb( :show )
+end
+
+post '/transactions' do
+  @transaction = Transaction.new( params )
+  @transaction.save()
+  redirect to "/transactions"
+end
+
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find( params[:id] )
+  erb( :edit )
+end
+
+put '/transactions/:id' do
+  Transaction.new( params ).update
+  redirect to '/transactions'
+end
+
+delete '/transactions/:id' do
+  transaction = Transaction.find( params[:id] )
+  transaction.delete()
+  redirect to '/transactions'
+end
