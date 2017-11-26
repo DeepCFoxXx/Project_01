@@ -31,4 +31,21 @@ class Transaction
     @id = transaction_data.first()['id'].to_i
  end
 
+ def update()
+   sql = "UPDATE transactions SET
+   (
+    merchant_name,
+    value,
+    tag,
+    account_holder_id
+    )
+    values
+    (
+    $1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@merchant_name, @value, @tag, @account_holder_id]
+    SqlRunner.run(sql, values)
+ end
+
 end

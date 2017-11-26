@@ -24,9 +24,26 @@ class AccountHolder
     $1, $2, $3
     )
     RETURNING *"
-    values = [@name, @funds, @tag, @transaction_id]
+    values = [@name, @funds, @transaction_id]
     account_holder_data = SqlRunner.run(sql,values)
     @id = account_holder_data.first()['id'].to_i
+ end
+
+
+ def update()
+   sql = "UPDATE account_holders SET
+   (
+    name,
+    funds,
+    transaction_id
+    )
+    values
+    (
+    $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@name, @funds, @transaction_id]
+    SqlRunner.run(sql, values)
  end
 
 end
