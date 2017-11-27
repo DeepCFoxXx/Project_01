@@ -10,7 +10,7 @@ class AccountHolder
   def initialize(options)
     @id = options['id'].to_i
     @first_name = options['first_name']
-    @last_name = options['last_name']
+    @second_name = options['second_name']
     @funds = options['funds'].to_s
   end
 
@@ -18,7 +18,7 @@ class AccountHolder
     sql = "INSERT INTO account_holders
     (
       first_name,
-      last_name,
+      second_name,
       funds
     )
     values
@@ -26,7 +26,7 @@ class AccountHolder
       $1, $2, $3
     )
     RETURNING *"
-    values = [@first_name, @last_name, @funds]
+    values = [@first_name, @second_name, @funds]
     account_holder_data = SqlRunner.run(sql,values)
     @id = account_holder_data.first()['id'].to_i
   end
@@ -36,7 +36,7 @@ class AccountHolder
     sql = "UPDATE account_holders SET
     (
       first_name,
-      last_name,
+      second_name,
       funds
     )
     values
@@ -44,7 +44,7 @@ class AccountHolder
       $1, $2, $3
     )
     WHERE id = $4"
-    values = [@first_name, @last_name, @funds]
+    values = [@first_name, @second_name, @funds]
     SqlRunner.run(sql, values)
   end
 
