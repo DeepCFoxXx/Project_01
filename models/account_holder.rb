@@ -1,17 +1,17 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./transaction.rb')
 require_relative('./merchant.rb')
+require_relative('./tag.rb')
 
 class AccountHolder
 
-  attr_reader :id, :name, :funds, :transaction_id
+  attr_reader :id, :first_name, :last_name, :funds
 
   def initialize(options)
     @id = options['id'].to_i
     @first_name = options['first_name']
     @last_name = options['last_name']
     @funds = options['funds'].to_s
-    @transaction_id = options['transaction_id'].to_i
   end
 
   def save()
@@ -19,15 +19,14 @@ class AccountHolder
     (
       first_name,
       last_name,
-      funds,
-      transaction_id
+      funds
     )
     values
     (
       $1, $2, $3
     )
     RETURNING *"
-    values = [@first_name, @last_name, @funds, @transaction_id]
+    values = [@first_name, @last_name, @funds]
     account_holder_data = SqlRunner.run(sql,values)
     @id = account_holder_data.first()['id'].to_i
   end
@@ -38,15 +37,14 @@ class AccountHolder
     (
       first_name,
       last_name,
-      funds,
-      transaction_id
+      funds
     )
     values
     (
       $1, $2, $3
     )
     WHERE id = $4"
-    values = [@first_name, @last_name, @funds, @transaction_id]
+    values = [@first_name, @last_name, @funds]
     SqlRunner.run(sql, values)
   end
 
