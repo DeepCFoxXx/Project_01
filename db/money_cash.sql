@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS merchants;
-DROP TABLE IF EXISTS account_holders;
 DROP TABLE IF EXISTS tags;
 
 CREATE TABLE merchants (
@@ -11,13 +10,6 @@ CREATE TABLE merchants (
 CREATE TABLE tags (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255)
-);
-
-CREATE TABLE account_holders (
-  id SERIAL8 PRIMARY KEY,
-  first_name VARCHAR(255),
-  second_name VARCHAR(255),
-  funds INT2
 );
 
 CREATE TABLE transactions (

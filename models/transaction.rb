@@ -1,5 +1,4 @@
 require_relative('../db/sql_runner.rb')
-require_relative('./account_holder.rb')
 require_relative('./merchant.rb')
 require_relative('./tag.rb')
 require('pry')
@@ -11,7 +10,6 @@ class Transaction
   def initialize(options)
     @id = options['id'].to_i
     @merchant_id = options['merchant_id'].to_i
-    @account_holder_id = options['account_holder_id'].to_i
     @tag_id = options['tag_id'].to_i
     @value = options['value'].to_s
   end
@@ -20,7 +18,6 @@ class Transaction
     sql = "INSERT INTO transactions
     (
       merchant_id,
-      account_holder_id,
       tag_id,
       value
     )
@@ -29,7 +26,7 @@ class Transaction
       $1, $2, $3, $4
     )
     RETURNING *"
-    values = [@merchant_id, @account_holder_id, @tag_id, @value]
+    values = [@merchant_id, @tag_id, @value]
     transaction_data = SqlRunner.run(sql,values)
     @id = transaction_data.first()['id'].to_i
   end
@@ -38,7 +35,6 @@ class Transaction
     sql = "UPDATE transactions SET
     (
       merchant_id,
-      account_holder_id,
       tag_id,
       value
     )
@@ -47,7 +43,7 @@ class Transaction
       $1, $2, $3, $4
     )
     WHERE id = $5"
-    values = [@merchant_id, @account_holder_id, @tag_id, @value]
+    values = [@merchant_id, @tag_id, @value]
     SqlRunner.run(sql, values)
   end
 
@@ -86,13 +82,6 @@ class Transaction
    values = [@merchant_id]
    merchant_data = SqlRunner.run(sql, values).first
    Merchant.new(merchant_data)
-  end
-
-  def account_holders
-    sql = "SELECT * FROM account_holder WHERE id = $1"
-    values = [@account_holder_id]
-    account_holder_data = SqlRunner.run(sql, values).first
-    AccountHolder.new(account_holder_data) 
   end
 
 end

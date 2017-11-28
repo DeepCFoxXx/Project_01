@@ -2,7 +2,6 @@ require('sinatra')
 require('sinatra/reloader')
 require('pry')
 
-require_relative('./models/account_holder.rb')
 require_relative('./models/transaction.rb')
 require_relative('./models/merchant.rb')
 require_relative('./models/tag.rb')
