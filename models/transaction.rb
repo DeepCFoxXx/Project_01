@@ -81,8 +81,10 @@ class Transaction
 
   # method for getting merchant object for a transaction
   def merchant
-
+   sql = "SELECT * FROM merchants WHERE id = $1"
+   values = [@merchant_id]
+   merchant_data = SqlRunner.run(sql, values).first
+   result = Merchant.new(merchant_data)
   end
-
 
 end
