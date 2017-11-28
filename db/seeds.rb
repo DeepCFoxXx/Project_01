@@ -2,6 +2,7 @@ require_relative('../models/merchant.rb')
 require_relative('../models/account_holder.rb')
 require_relative('../models/transaction.rb')
 require_relative('../models/tag.rb')
+require ('pry')
 
 
 account_holder1 = AccountHolder.new ({
@@ -127,3 +128,6 @@ account_holder1 = AccountHolder.new ({
                                 # transaction2.delete()
                                 # transaction3.delete()
                                 # transaction4.delete()
+
+binding.pry
+nil

@@ -1,6 +1,6 @@
+DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS merchants;
 DROP TABLE IF EXISTS account_holders;
-DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS tags;
 
 CREATE TABLE merchants (

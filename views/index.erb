@@ -1,16 +1,7 @@
-<h1>Account_Holders</h1>
+<h1>All Transactions</h1>
 
-<table>
-  <tr>
-    <th>First_Name</th>
-    <th>second_Name</th>
-    <th></th>
-  </tr>
-  <% for transaction in @transactions %>
-  <tr>
-    <td><a href="/transactions/<%= transaction.id %>"><%= account_holder %></a></td>
-
-    <td><%= transactions.all %></td>
-  </tr>
-  <% end %>
-</table>
+<% @transactions.each do |transaction| %>
+  <p> Value: <%= transaction.value %> </p>
+  <p> <%= transaction.tag.name %> </p>
+  <p>  <%=  %> </p>
+<% end %>
