@@ -88,4 +88,11 @@ class Transaction
    Merchant.new(merchant_data)
   end
 
+  def account_holders
+    sql = "SELECT * FROM account_holder WHERE id = $1"
+    values = [@account_holder_id]
+    account_holder_data = SqlRunner.run(sql, values).first
+    AccountHolder.new(account_holder_data) 
+  end
+
 end
