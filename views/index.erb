@@ -1,7 +1,11 @@
 <h1>All Transactions</h1>
 
 <% @transactions.each do |transaction| %>
-  <p> Transaction Value: <%= transaction.value %> </p>
-  <p> Transaction Type: <%= transaction.tag.name %> </p>
-  <p>  <%= transaction.merchant.merchant_name %> </p>
+  <p> Value: <%= transaction.value %> </p>
+  <p> Type: <%= transaction.tag.name %> </p>
+  <p> Merchant: <%= transaction.merchant.merchant_name %> </p>
 <% end %>
+
+<div>
+   <a class="button big-button" href="/">Home</a>
+</div>

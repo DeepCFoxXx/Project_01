@@ -2,6 +2,7 @@ require_relative('../db/sql_runner.rb')
 require_relative('./account_holder.rb')
 require_relative('./merchant.rb')
 require_relative('./tag.rb')
+require('pry')
 
 class Transaction
 
@@ -84,7 +85,7 @@ class Transaction
    sql = "SELECT * FROM merchants WHERE id = $1"
    values = [@merchant_id]
    merchant_data = SqlRunner.run(sql, values).first
-   result = Merchant.new(merchant_data)
+   Merchant.new(merchant_data)
   end
 
 end
