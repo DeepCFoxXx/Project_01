@@ -73,7 +73,7 @@ class Transaction
     sql = "SELECT * FROM transactions WHERE id = $1"
     values = [id]
     transactions = SqlRunner.run(sql, values)
-    result = Transaction.new(transaction.first)
+    result = Transaction.new(transactions.first)
   end
 
   # method for getting tag object for a transaction

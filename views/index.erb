@@ -3,8 +3,12 @@
 <% @transactions.each do |transaction| %>
   <p> Value: £<%= transaction.value %> </p>
   <p> Type: <%= transaction.tag.name %> </p>
-  <p> Merchant: <%= transaction.merchant.merchant_name %> </p>
+  <p> Merchant: <%= transaction.merchant.merchant_name %></p>
+  <form method = "post" action = "/transactions/<%= transaction.id %>" >
+    <input type ="hidden" name="_method" value="delete"/>
+    <button type="delete">Delete</button></form>
 <% end %>
+
 
 <div>
    <a class="button big-button" href="/">Home</a>
