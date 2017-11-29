@@ -14,6 +14,14 @@ class Transaction
     @value = options['value'].to_s
   end
 
+  def self.total_value()
+    sql = "SELECT sum(value) FROM transactions"
+    values = []
+    values = SqlRunner.run(sql, values)
+    value = values.first
+    return value['sum']
+  end
+
   def save()
     sql = "INSERT INTO transactions
     (
@@ -78,10 +86,22 @@ class Transaction
 
   # method for getting merchant object for a transaction
   def merchant
-   sql = "SELECT * FROM merchants WHERE id = $1"
-   values = [@merchant_id]
-   merchant_data = SqlRunner.run(sql, values).first
-   Merchant.new(merchant_data)
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [@merchant_id]
+    merchant_data = SqlRunner.run(sql, values).first
+    Merchant.new(merchant_data)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM transactions"
+    values = []
+    SqlRunner.run(sql, values)
+  end
+
+  def self.destroy(id)
+    sql = "DELETE FROM transactions WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
   end
 
 end

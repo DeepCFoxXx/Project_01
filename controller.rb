@@ -6,9 +6,13 @@ require_relative('./models/transaction.rb')
 require_relative('./models/merchant.rb')
 require_relative('./models/tag.rb')
 
-
 get '/' do
   erb( :home )
+end
+
+get '/transactions/total' do
+  @value = Transaction.total_value()
+  erb( :total )
 end
 
 get '/transactions' do
@@ -17,6 +21,8 @@ get '/transactions' do
 end
 
 get '/transactions/new' do
+  @merchants = Merchant.all
+  @tags = Tag.all
   erb( :new )
 end
 
