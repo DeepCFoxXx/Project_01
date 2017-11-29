@@ -5,35 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cash_Money</title>
 
-<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,500,300' type='text/css'>
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,500,300' type='text/css'>
 
   <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-<nav class="top-navigation">
-  <ul class="links">
-    <li>
-      <a href="/transactions">All Transactions</a>
-    </li>
-    <li>
-      <a href="/transactions/new">Create Transaction</a>
-    </li>
-    <li>
-      <a href="/transactions/total">Total Amount Spent</a>
-    </li>
-    <li>
-      <a href="/transactions/total_by_tag">Total By Tag</a>
-    </li>
-  </ul>
-</nav>
-    <section class="introduction">
-      <div class="content">
-        <h1></h1>
-        <h3></h3>
-        <a class="button big-button" href="/transactions/new"></a>
-      </div>
-    </section>
-    <section class="">
-      <div class="content">
-        <h2></h2>
-        <%= yield %>
+  <nav class="top-navigation">
+    <ul class="links">
+      <li>
+        <a href="/transactions">All Transactions</a>
+      </li>
+      <li>
+        <a href="/transactions/new">Create Transaction</a>
+      </li>
+      <li>
+        <a href="/transactions/total">Total Amount Spent</a>
+      </li>
+    </ul>
+  </nav>
+  <section class="introduction">
+    <div class="content">
+      <h1></h1>
+      <h3></h3>
+      <a class="button big-button" href="/transactions/new"></a>
+    </div>
+  </section>
+  <section class="">
+    <div class="content">
+      <h2></h2>
+      <%= yield %>
