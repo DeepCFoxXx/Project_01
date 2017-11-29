@@ -61,4 +61,10 @@ class Tag
    result = Tag.new(tag.first)
  end
 
+ def self.delete_all()
+   sql = "DELETE FROM tags"
+   values = []
+   SqlRunner.run(sql, values)
+ end
+
 end

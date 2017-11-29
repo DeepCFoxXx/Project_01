@@ -61,4 +61,10 @@ class Merchant
     result = Merchant.new(merchant.first)
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM merchants"
+    values = []
+    SqlRunner.run(sql, values)
+  end
+
 end

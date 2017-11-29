@@ -10,6 +10,11 @@ get '/' do
   erb( :home )
 end
 
+get '/transactions/total_by_tag/:tag_id' do
+  @value = Transaction.total_by_tag(params[:tag_id])
+  erb( :total_by_tag )
+end
+
 get '/transactions/total' do
   @value = Transaction.total_value()
   erb( :total )
@@ -52,3 +57,15 @@ delete '/transactions/:id' do
   transaction.delete()
   redirect to '/transactions'
 end
+
+# post '/transactions/:id' do
+#   @transaction = Transaction.new(params)
+#   @transaction.update
+#   redirect to "/transactions/#{params['id']}"
+# end
+
+# post '/transactions' do
+#   @transaction = Transaction.new( params )
+#   @transaction.save()
+#   redirect to "/transactions"
+# end

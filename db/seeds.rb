@@ -3,7 +3,9 @@ require_relative('../models/transaction.rb')
 require_relative('../models/tag.rb')
 require ('pry')
 
-
+# Merchant.delete_all()
+# Tag.delete_all()
+# Transaction.delete_all()
 
 merchant1 = Merchant.new ({
   "merchant_name" => "ASDA"
@@ -26,11 +28,6 @@ merchant1 = Merchant.new ({
         merchant3.save
         merchant4.save
 
-        #  merchant1.delete()
-        #  merchant2.delete()
-        #  merchant3.delete()
-        #  merchant4.delete()
-
         tag1 = Tag.new ({
           "name" => "Business"
           })
@@ -52,48 +49,46 @@ merchant1 = Merchant.new ({
                 tag3.save
                 tag4.save
 
-                # tag1.delete()
-                # tag2.delete()
-                # tag3.delete()
-                # tag4.delete()
-
                 transaction1 = Transaction.new ({
-                  "account_holder_id" => account_holder1.id,
+
                   "merchant_id" => merchant1.id,
                   "tag_id" => tag1.id,
                   "value" => 20
                   })
 
                   transaction2 = Transaction.new ({
-                    "account_holder_id" => account_holder2.id,
+
                     "merchant_id" => merchant2.id,
                     "tag_id" => tag2.id,
                     "value" => 15
                     })
 
                     transaction3 = Transaction.new ({
-                      "account_holder_id" => account_holder3.id,
+
                       "merchant_id" => merchant3.id,
                       "tag_id" => tag3.id,
                       "value" => 50
                       })
 
                       transaction4 = Transaction.new ({
-                        "account_holder_id" => account_holder4.id,
+
                         "merchant_id" => merchant4.id,
                         "tag_id" => tag4.id,
                         "value" => 30
                         })
 
+                        transaction5 = Transaction.new ({
+
+                          "merchant_id" => merchant4.id,
+                          "tag_id" => tag4.id,
+                          "value" => 30
+                          })
+
                         transaction1.save
                         transaction2.save
                         transaction3.save
                         transaction4.save
-
-                        # transaction1.delete()
-                        # transaction2.delete()
-                        # transaction3.delete()
-                        # transaction4.delete()
+                        transaction5.save
 
                         binding.pry
                         nil

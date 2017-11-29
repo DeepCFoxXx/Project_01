@@ -14,6 +14,14 @@ class Transaction
     @value = options['value'].to_s
   end
 
+  def self.total_by_tag(tag_id)
+    sql = "SELECT sum(value) FROM transactions WHERE tag_id = $1"
+    values = [tag_id]
+    values = SqlRunner.run(sql, values)
+    value = values.first
+    return value['sum']
+  end
+
   def self.total_value()
     sql = "SELECT sum(value) FROM transactions"
     values = []
@@ -31,7 +39,7 @@ class Transaction
     )
     values
     (
-      $1, $2, $3, $4
+      $1, $2, $3
     )
     RETURNING *"
     values = [@merchant_id, @tag_id, @value]
@@ -48,9 +56,9 @@ class Transaction
     )
     values
     (
-      $1, $2, $3, $4
+      $1, $2, $3
     )
-    WHERE id = $5"
+    WHERE id = $4"
     values = [@merchant_id, @tag_id, @value]
     SqlRunner.run(sql, values)
   end

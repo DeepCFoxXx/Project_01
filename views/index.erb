@@ -2,6 +2,7 @@
 
 <% @transactions.each do |transaction| %>
   <p> Value: £<%= transaction.value %> </p>
+  <a href="/transactions/total_by_tag/<%= transaction.tag.id %>"><%= transaction.tag.name %></a>
   <p> Type: <%= transaction.tag.name %> </p>
   <p> Merchant: <%= transaction.merchant.merchant_name %></p>
   <form method = "post" action = "/transactions/<%= transaction.id %>" >
