@@ -10,9 +10,9 @@ get '/' do
   erb( :home )
 end
 
-get '/transactions/total_by_tag/:tag_id' do
-  @value = Transaction.total_by_tag(params[:tag_id])
-  erb( :total_by_tag )
+get '/transactions' do
+  @transactions = Transaction.all()
+  erb( :index )
 end
 
 get '/transactions/total' do
@@ -20,15 +20,15 @@ get '/transactions/total' do
   erb( :total )
 end
 
-get '/transactions' do
-  @transactions = Transaction.all()
-  erb( :index )
-end
-
 get '/transactions/new' do
   @merchants = Merchant.all
   @tags = Tag.all
   erb( :new )
+end
+
+get '/transactions/total_by_tag/:tag_id' do
+  @value = Transaction.total_by_tag(params[:tag_id])
+  erb( :total_by_tag )
 end
 
 get '/transactions/:id' do
@@ -57,15 +57,3 @@ delete '/transactions/:id' do
   transaction.delete()
   redirect to '/transactions'
 end
-
-# post '/transactions/:id' do
-#   @transaction = Transaction.new(params)
-#   @transaction.update
-#   redirect to "/transactions/#{params['id']}"
-# end
-
-# post '/transactions' do
-#   @transaction = Transaction.new( params )
-#   @transaction.save()
-#   redirect to "/transactions"
-# end

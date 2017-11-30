@@ -84,7 +84,7 @@ class Transaction
     result = Transaction.new(transactions.first)
   end
 
-  # method for getting tag object for a transaction
+  
   def tag
     sql = "SELECT * FROM tags WHERE id = $1"
     values = [@tag_id]
@@ -92,7 +92,7 @@ class Transaction
     result = Tag.new(tag_data)
   end
 
-  # method for getting merchant object for a transaction
+
   def merchant
     sql = "SELECT * FROM merchants WHERE id = $1"
     values = [@merchant_id]
