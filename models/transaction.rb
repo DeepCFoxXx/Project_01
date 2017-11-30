@@ -5,7 +5,7 @@ require('pry')
 
 class Transaction
 
-  attr_reader :id, :merchant_id, :account_holder_id, :tag_id, :value
+  attr_reader :id, :merchant_id, :tag_id, :value
 
   def initialize(options)
     @id = options['id'].to_i

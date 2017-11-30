@@ -14,7 +14,6 @@ CREATE TABLE tags (
 
 CREATE TABLE transactions (
   id SERIAL8 PRIMARY KEY,
-  account_holder_id INT2 REFERENCES account_holders(id),
   merchant_id INT2 REFERENCES merchants(id),
   tag_id INT2 REFERENCES tags(id),
   value INT2

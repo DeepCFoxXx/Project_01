@@ -42,3 +42,8 @@ h1 {
   margin: auto;
   padding: 15px;
 }
+
+.content {
+  text: 100px;
+  text-align: center;
+}
