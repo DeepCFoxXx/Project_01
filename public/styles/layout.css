@@ -32,4 +32,13 @@ h1 {
   border: 1px solid black;
   width: 200px;
   margin: auto;
+
+}
+
+.total-centered {
+  text-align: center;
+  border: 1px solid black;
+  width: 200px;
+  margin: auto;
+  padding: 15px;
 }
