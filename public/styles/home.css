@@ -1,0 +1,16 @@
+body {
+  background: white url('images/images_1.jpeg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  background-color: white;
+  font-family: serif;
+  text-align: center;
+  display: inline;
+
+}
+
+h1 {
+  font-size: 20px;
+  color: black;
+}
