@@ -72,5 +72,6 @@ figure > img {
 }
 
 .p1_image {
-  width: 20em;
+  display: block;
+  margin: 0 auto;
 }
