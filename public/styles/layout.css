@@ -3,11 +3,13 @@ body {
   background-repeat: no-repeat;
   font-family: sans-serif;
   margin: auto;
+  text-decoration: none;
 }
 
 h1 {
   font-size: 40px;
   color: black;
+  text-decoration: none;
 }
 
 figure > img {
@@ -17,18 +19,21 @@ figure > img {
 .transactions {
   width: 800px;
   margin: 0 auto;
+  text-decoration: none;
 }
 
 .transactions td {
   border: 1px solid black;
   text-align: center;
   padding: 10px;
+  text-decoration: none;
 }
 
 .links li{
   list-style: none;
   display: inline-block;
   padding-right: 10px;
+  text-decoration: none;
 }
 
 .form-centered {
@@ -36,7 +41,7 @@ figure > img {
   border: 1px solid black;
   width: 400px;
   margin: auto;
-
+  text-decoration: none;
 }
 
 .total-centered {
@@ -45,11 +50,13 @@ figure > img {
   width: 200px;
   margin: auto;
   padding: 15px 15px 15px 15px;
+  text-decoration: none;
 }
 
 .content {
   text: 100px;
   text-align: center;
+  text-decoration: none;
 }
 
 .button1 {
@@ -62,4 +69,8 @@ figure > img {
   border-radius: 100%;
   background-color: yellow;
   border: 1px solid black;
+}
+
+.p1_image {
+  width: 20em;
 }
