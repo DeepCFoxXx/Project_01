@@ -1,16 +1,35 @@
 body {
-  background: white url('images/images_1.jpeg');
   background-size: 100%;
   background-repeat: no-repeat;
-  color: white;
-  background-color: white;
-  font-family: serif;
-  text-align: center;
-  display: inline;
-
+  font-family: sans-serif;
+  margin: auto;
 }
 
 h1 {
   font-size: 20px;
   color: black;
+}
+
+.transactions {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.transactions td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.links li{
+  list-style: none;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.form-centered {
+  text-align: center;
+  border: 1px solid black;
+  width: 200px;
+  margin: auto;
 }

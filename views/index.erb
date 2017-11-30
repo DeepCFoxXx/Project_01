@@ -1,18 +1,29 @@
 <h1>All Transactions</h1>
+<table class="transactions">
+    <tr>
+      <th>Value</th>
+      <th>Type</th>
+      <th>Merchant</th>
+      <th>Delete</th>
+    </tr>
 
-<link href="/styles/index.css" rel="stylesheet" type="text/css">
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td>£<%= transaction.value %></td>
+        <td>
+          <a href="/transactions/total_by_tag/<%= transaction.tag.id %>">
+            <%= transaction.tag.name %>
+          </a>
+        </td>
+        <td><%= transaction.merchant.merchant_name %></td>
+        <td>
+          <form method = "post" action = "/transactions/<%= transaction.id %>" >
+            <input type ="hidden" name="_method" value="delete"/>
+            <button type="delete">Delete</button>
+          </form>
+        </td>
+      </tr>
 
-<% @transactions.each do |transaction| %>
-  <p> Value: £<%= transaction.value %> </p>
-  <a href="/transactions/total_by_tag/<%= transaction.tag.id %>"><%= transaction.tag.name %></a>
-  <p> Type: <%= transaction.tag.name %> </p>
-  <p> Merchant: <%= transaction.merchant.merchant_name %></p>
-  <form method = "post" action = "/transactions/<%= transaction.id %>" >
-    <input type ="hidden" name="_method" value="delete"/>
-    <button type="delete">Delete</button></form>
-<% end %>
+    <% end %>
 
-
-<div>
-   <a class="button big-button" href="/">Home</a>
-</div>
+</table>
